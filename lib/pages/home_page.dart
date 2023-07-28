@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:superapps/theme.dart';
+import 'package:superapps/widget/product_tile.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -156,10 +157,44 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget productTitle() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: defaultMargin,
+          left: defaultMargin,
+          right: defaultMargin,
+        ),
+        child: Text(
+          'Our Products',
+          style: primaryTextStyle.copyWith(
+            fontSize: 22,
+            fontWeight: semiBold,
+          ),
+        ),
+      );
+    }
+
+    Widget product() {
+      return Container(
+        margin: const EdgeInsets.only(
+          top: 14,
+        ),
+        child: const Column(
+          children: [
+            ProductTile(),
+            ProductTile(),
+            ProductTile(),
+          ],
+        ),
+      );
+    }
+
     return ListView(
       children: [
         header(),
         categories(),
+        productTitle(),
+        product(),
       ],
     );
   }
